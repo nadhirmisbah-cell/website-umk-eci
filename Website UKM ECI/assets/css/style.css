@@ -1,0 +1,268 @@
+/* ============================================
+   ENGLISH CLUB IKOPIN — Global Stylesheet
+   style.css  |  Load on EVERY page
+   ============================================ */
+
+/* ---------- CSS Variables (one place to change colors) ---------- */
+:root {
+    --color-primary:   #000b61;   /* teal */
+    --color-secondary: #3300ff;   /* green */
+    --color-dark:      #272727;
+    --color-nav:       #333333;
+    --color-bg:        #f9f9f9;
+    --color-text:      #3b4045;
+    --color-white:     #ffffff;
+    --color-footer-text: #dfdfdf;
+    --font-main: 'Times New Roman', Times, serif;
+    --transition: all 0.3s ease-in-out;
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ---------- Base ---------- */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 12px;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.6rem; }
+h3 { font-size: 1.3rem; }
+
+p { margin-bottom: 10px; }
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+}
+
+/* ---------- Header ---------- */
+header {
+    background-color: var(--color-white);
+    padding: 20px;
+    text-align: center;
+    color: var(--color-dark);
+    border-bottom: 2px solid var(--color-primary);
+}
+
+header h1 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    color: var(--color-dark);
+}
+
+/* ---------- Logo ---------- */
+.logo {
+    width: 120px;
+    height: auto;
+    margin: 8px 10px;
+    vertical-align: middle;
+}
+
+.icon {
+    width: 28px;
+    height: auto;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
+/* ---------- Navigation ---------- */
+nav {
+    background-color: var(--color-nav);
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+nav ul li a {
+    display: block;
+    color: var(--color-white);
+    text-align: center;
+    padding: 14px 18px;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+}
+
+nav ul li a:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+/* Active page highlight */
+nav ul li a.active {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+/* ---------- Main Content ---------- */
+main {
+    padding: 30px 20px 80px; /* bottom padding prevents footer overlap */
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+section {
+    padding: 40px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+section:last-of-type {
+    border-bottom: none;
+}
+
+section h2 {
+    color: var(--color-primary);
+    margin-bottom: 16px;
+}
+
+/* ---------- Footer ---------- */
+footer {
+    background-color: var(--color-dark);
+    color: var(--color-footer-text);
+    text-align: center;
+    padding: 18px 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* ---------- Forms ---------- */
+input[type="text"],
+input[type="email"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px 14px;
+    margin-bottom: 14px;
+    border: 1px solid #ccc;
+    background: #fff;
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+    border-radius: 3px;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+textarea {
+    height: 140px;
+    resize: vertical;
+}
+
+input[type="submit"],
+button[type="submit"],
+.btn {
+    background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
+    color: var(--color-white);
+    border: none;
+    padding: 12px 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: var(--transition);
+    font-family: var(--font-main);
+}
+
+input[type="submit"]:hover,
+button[type="submit"]:hover,
+.btn:hover {
+    opacity: 0.88;
+}
+
+/* ---------- Contact list ---------- */
+.contact-list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+    font-size: 1rem;
+}
+
+.contact-list li a {
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.1rem;
+    }
+
+    .logo {
+        width: 90px;
+    }
+
+    /* Hide second logo on very small screens */
+    .logo:nth-of-type(2) {
+        display: none;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li a {
+        text-align: left;
+        padding: 12px 16px;
+        border-bottom: 1px solid #444;
+    }
+
+    main {
+        padding: 20px 14px 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 1.3rem; }
+    h2 { font-size: 1.2rem; }
+}
